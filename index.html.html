@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.1em;
+            background-color: rgb(234, 234, 255);
+        }
+
+        header>h1 {
+            text-align: center;
+            color:white;
+            text-shadow: 2px 2px 5px black;
+
+        }
+
+        header {
+            padding: 10px;
+            height: 50px;
+            background-color: rgb(14, 118, 255);
+            box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.507);
+        }
+
+        main {
+            padding: 10px;
+            background-color: rgb(197, 222, 255);
+            height: 80vh;
+        }
+
+        input {
+            height: 2em;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        input.campo:hover {
+            background-color: rgba(196, 212, 255, 0.274);
+        }
+
+      
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Sua saúde</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Vamos cuidar da saúde?</h2>
+            <p>
+                <label for="txtalt">Qual é a sua altura?</label><br>
+                <input class="campo" type="number" name="txtalt" id="txtalt" placeholder="Altura em Centímetro">
+            </p>
+            <p>
+                <label for="txtpeso">Informe o seu peso</label><br>
+                <input class="campo" type="number" name="txtpeso" id="txtpeso" placeholder="Peso em Kg">
+            </p>
+            <input type="button" value="Calcular" onclick="calc()">
+            <br>
+            <div id="res">
+                <p>resultado</p>
+            </div>
+
+
+        </section>
+    </main>
+    <script>
+        function calc(){
+            var txtalt = Number(document.getElementById('txtalt').value)
+            txtalt= txtalt/100
+
+            var txtpeso = Number(document.getElementById('txtpeso').value)
+
+            var imc = txtpeso/ txtalt**2
+            var res = document.getElementById('res')
+            res.innerHTML= `O seu imc É ${imc.toFixed(2)} <br>`
+            res.style.color = "white"
+
+
+            if(imc <18.5){
+                res.innerHTML += "Baixo Peso"
+                res.style.background = "yellow"
+                res.style.color = "black"
+
+            } else if(imc >=18.5 && imc <25){
+                res.innerHTML +=`Peso Normal`
+                res.style.background = "green"
+
+            }else if(imc >=25 && imc<30){
+                res.innerHTML+= `Sobrepeso`
+                res.style.background = "orange"
+
+            }if(imc >=30){
+                res.innerHTML+= "Obesidade"
+                res.style.background = "red"
+
+            }
+            
+        }
+
+
+    </script>
+
+</body>
+
+</html>

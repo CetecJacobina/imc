@@ -17,18 +17,16 @@
             background-color: rgb(234, 234, 255);
         }
 
-        header>h1 {
-            text-align: center;
-            color:white;
-            text-shadow: 2px 2px 5px black;
-
-        }
-
         header {
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 5px black;
             padding: 10px;
+            padding-bottom: 20px;
             height: 50px;
-            background-color: rgb(14, 118, 255);
-            box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.507);
+            background-color: rgb(0, 110, 255);
+            box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.164);
+
         }
 
         main {
@@ -41,21 +39,27 @@
             height: 2em;
             border-radius: 5px;
             margin-bottom: 10px;
+            padding: 5px;
+            padding-left: 15px;
         }
 
         input.campo:hover {
-            background-color: rgba(196, 212, 255, 0.274);
+            background-color: rgba(196, 212, 255, 0.164);
         }
-
-      
-
+        #res{
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 400px;
+        }
     </style>
 </head>
 
 <body>
 
     <header>
-        <h1>Sua saúde</h1>
+        <h1>IMC</h1>
+        <p>Indice de Massa Corpórea</p>
     </header>
     <main>
         <section>
@@ -77,38 +81,45 @@
 
         </section>
     </main>
-    <script>
-        function calc(){
+    <script>        
+       
+
+        function calc() {
             var txtalt = Number(document.getElementById('txtalt').value)
-            txtalt= txtalt/100
+            txtalt = txtalt / 100
 
             var txtpeso = Number(document.getElementById('txtpeso').value)
 
-            var imc = txtpeso/ txtalt**2
+            var imc = txtpeso / txtalt ** 2
             var res = document.getElementById('res')
-            res.innerHTML= `O seu imc É ${imc.toFixed(2)} <br>`
+            res.innerHTML = `O seu imc É ${imc.toFixed(2)} <br>`
             res.style.color = "white"
+            res.style.textShadow="1px 1px 1px black"
 
 
-            if(imc <18.5){
+
+            if (imc < 18.5) {
                 res.innerHTML += "Baixo Peso"
                 res.style.background = "yellow"
                 res.style.color = "black"
 
-            } else if(imc >=18.5 && imc <25){
-                res.innerHTML +=`Peso Normal`
+            } else if (imc < 25) {
+                res.innerHTML += `Peso Normal`
                 res.style.background = "green"
 
-            }else if(imc >=25 && imc<30){
-                res.innerHTML+= `Sobrepeso`
+            } else if (imc < 30) {
+                res.innerHTML += `Sobrepeso`
                 res.style.background = "orange"
 
-            }if(imc >=30){
-                res.innerHTML+= "Obesidade"
+            } else {
+                res.innerHTML += "Obesidade"
                 res.style.background = "red"
 
             }
-            
+
+
+
+
         }
 
 

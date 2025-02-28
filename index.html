@@ -33,6 +33,7 @@
             padding: 10px;
             background-color: rgb(197, 222, 255);
             height: 80vh;
+            text-align: justify;
         }
 
         input {
@@ -47,6 +48,7 @@
             background-color: #eef1ff;
         }
         #res{
+            font-size: 1.5em;
             border: 1px solid black;
             padding: 10px;
             border-radius: 5px;
@@ -63,8 +65,8 @@
     </header>
     <main>
         <section>
-            <h2>Vamos cuidar da saúde?</h2>
-            <p>
+            <p>O IMC é uma ferramenta importante para avaliar a relação entre o peso e a altura de uma pessoa.</p>
+            <p><br>
                 <label for="txtalt">Qual é a sua altura?</label><br>
                 <input class="campo" type="number" name="txtalt" id="txtalt" placeholder="Altura em Centímetro">
             </p>
@@ -82,11 +84,17 @@
         </section>
     </main>
     <script>        
-       
+
+        document.getElementById('txtpeso').addEventListener("input", calc)
+
+
+
 
         function calc() {
-            var txtalt = Number(document.getElementById('txtalt').value)
+            var txtalt = document.getElementById('txtalt')
+            txtalt = Number(txtalt.value)
             txtalt = txtalt / 100
+
 
             var txtpeso = Number(document.getElementById('txtpeso').value)
 
@@ -94,7 +102,7 @@
             var res = document.getElementById('res')
             res.innerHTML = `O seu imc É ${imc.toFixed(2)} <br>`
             res.style.color = "white"
-            res.style.textShadow="1px 1px 1px black"
+            res.style.textShadow="1px 1px 1px rgba(0, 0, 0, 0.564)"
 
 
 

@@ -24,7 +24,7 @@
             padding: 10px;
             padding-bottom: 20px;
             height: 50px;
-            background-color: #0C2F50;
+            background-color: #0e285f;
             box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.164);
 
         }
@@ -47,7 +47,8 @@
         input.campo:hover {
             background-color: #eef1ff;
         }
-        #res{
+
+        #res {
             font-size: 1.5em;
             border: 1px solid black;
             padding: 10px;
@@ -74,7 +75,6 @@
                 <label for="txtpeso">Informe o seu peso</label><br>
                 <input class="campo" type="number" name="txtpeso" id="txtpeso" placeholder="Peso em Kg">
             </p>
-            <input type="reset" value="Limpar" >
             <br>
             <div id="res">
                 <p>Resultado</p>
@@ -83,46 +83,50 @@
 
         </section>
     </main>
-    <script>        
+    <script>
 
         document.getElementById('txtpeso').addEventListener("input", calc)
 
 
-
-
         function calc() {
+            var res = document.getElementById('res')
+
+
             var txtalt = document.getElementById('txtalt')
             txtalt = Number(txtalt.value)
-            txtalt = txtalt / 100
+            if (txtalt > 0) {
+
+                txtalt = txtalt / 100
+
+                var txtpeso = Number(document.getElementById('txtpeso').value)
+
+                var imc = txtpeso / txtalt ** 2
+                res.innerHTML = `O seu imc É ${imc.toFixed(2)} <br>`
+                res.style.color = "white"
+                res.style.textShadow = "1px 1px 1px rgba(0, 0, 0, 0.564)"
 
 
-            var txtpeso = Number(document.getElementById('txtpeso').value)
 
-            var imc = txtpeso / txtalt ** 2
-            var res = document.getElementById('res')
-            res.innerHTML = `O seu imc É ${imc.toFixed(2)} <br>`
-            res.style.color = "white"
-            res.style.textShadow="1px 1px 1px rgba(0, 0, 0, 0.564)"
+                if (imc < 18.5) {
+                    res.innerHTML += "Baixo Peso"
+                    res.style.background = "yellow"
+                    res.style.color = "black"
 
+                } else if (imc < 25) {
+                    res.innerHTML += `Peso Normal`
+                    res.style.background = "green"
 
+                } else if (imc < 30) {
+                    res.innerHTML += `Sobrepeso`
+                    res.style.background = "orange"
 
-            if (imc < 18.5) {
-                res.innerHTML += "Baixo Peso"
-                res.style.background = "yellow"
-                res.style.color = "black"
+                } else {
+                    res.innerHTML += "Obesidade"
+                    res.style.background = "red"
 
-            } else if (imc < 25) {
-                res.innerHTML += `Peso Normal`
-                res.style.background = "green"
-
-            } else if (imc < 30) {
-                res.innerHTML += `Sobrepeso`
-                res.style.background = "orange"
-
+                }
             } else {
-                res.innerHTML += "Obesidade"
-                res.style.background = "red"
-
+                res.innerHTML = "Preencha o campo Altura"
             }
 
 

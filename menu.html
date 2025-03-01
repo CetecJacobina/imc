@@ -10,12 +10,24 @@
 <body>
     <select name="seletor" id="seletor">
         <optgroup label="Selecione">
-        <option value=""><a href="">Home</a></option>
-        <option value=""><a href="tmb.html">Taxa Metabólica</a> Basal</option>
-        <option value=""><a href="imc.html" target="_blank">Índice de massa Corpórea</a></option>
-    </optgroup>
+            <option value="home">Home</option>
+            <option value="tmb">Taxa Metabólica Basal</option>
+            <option value="imc">Índice de massa Corpórea</option>
+        </optgroup>
 
     </select>
+    <script>
+        document.getElementById('seletor').addEventListener('change', function() {
+            var page = this.value;
+            if (page === 'home') {
+                window.location.href = 'home.html';
+            } else if (page === 'tmb') {
+                window.location.href = 'tmb.html';
+            } else if (page === 'imc') {
+                window.location.href = 'imc.html';
+            }
+        });
+    </script>
 
 </body>
 

@@ -14,30 +14,41 @@
         <h1>Bem-Vindo</h1>
         <p>Como está a sua saúde?</p>
     </header>
+
     <main>
         <div id="divmenu">
         </div>
         <section>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error recusandae quaerat incidunt repellat, repudiandae aut, ipsum perferendis reprehenderit laborum, aliquid tenetur provident expedita placeat libero! Quae eveniet repellendus porro non.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error recusandae quaerat incidunt repellat,
+                repudiandae aut, ipsum perferendis reprehenderit laborum, aliquid tenetur provident expedita placeat
+                libero! Quae eveniet repellendus porro non.</p>
 
             <a href="imc.html">Calcular IMC</a>
+
             <br>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZH6ESIdR_OVfvY3frAzeVkNPe-PXJFJ1HqA&s" alt="">
-           
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZH6ESIdR_OVfvY3frAzeVkNPe-PXJFJ1HqA&s"
+                alt="">
+
             <br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos odit enim optio tempore? Voluptatem officiis at maiores quo, eaque ullam explicabo, ratione neque cumque, veniam quam saepe. Molestias, voluptatum magnam.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos odit enim optio tempore? Voluptatem
+                officiis at maiores quo, eaque ullam explicabo, ratione neque cumque, veniam quam saepe. Molestias,
+                voluptatum magnam.</p>
 
 
         </section>
     </main>
 
+
+
     <script>
-          fetch('menu.html')
-        .then(response => response.text())
-        .then(data => {document.getElementById('divmenu').innerHTML = data;})
-        .catch(error => console.error('Erro Ao carregar o conteúdo:', error));
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('divmenu').innerHTML = data; })
+            .catch(error => console.error('Erro Ao carregar o conteúdo:', error));
 
     </script>
+
+   
 </body>
 
 </html>

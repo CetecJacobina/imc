@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taxa Metabólica Basal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -13,7 +14,6 @@
     </header>
     <main>
         <div id="divmenu">
-            <p>fwfe</p>
         </div>
         <section>
             <p>O IMC é uma ferramenta importante para avaliar a relação entre o peso e a altura de uma pessoa.</p>
@@ -33,5 +33,12 @@
 
         </section>
     </main>
+    <script>
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('divmenu').innerHTML = data; })
+            .catch(error => console.error('Erro Ao carregar o conteúdo:', error));
+
+    </script>
 </body>
 </html>

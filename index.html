@@ -4,51 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>IMC</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
 
     <header>
-        <h1>Bem-Vindo</h1>
-        <p>Como está a sua saúde?</p>
+        <h1>IMC</h1>
+        <p>Indice de Massa Corpórea</p>
     </header>
-
     <main>
         <div id="divmenu">
+           
         </div>
         <section>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error recusandae quaerat incidunt repellat,
-                repudiandae aut, ipsum perferendis reprehenderit laborum, aliquid tenetur provident expedita placeat
-                libero! Quae eveniet repellendus porro non.</p>
-
-          
-
+            <p>O IMC é uma ferramenta importante para avaliar a relação entre o peso e a altura de uma pessoa.</p>
+            <p><br>
+                <label for="txtalt">Qual é a sua altura?</label><br>
+                <input class="campo" type="number" name="txtalt" id="txtalt" placeholder="Altura em Centímetros">
+            </p>
+            <p>
+                <label for="txtpeso">Informe o seu peso</label><br>
+                <input class="campo" type="number" name="txtpeso" id="txtpeso" placeholder="Peso em Kg">
+            </p>
             <br>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZH6ESIdR_OVfvY3frAzeVkNPe-PXJFJ1HqA&s"
-                alt="">
-
-            <br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos odit enim optio tempore? Voluptatem
-                officiis at maiores quo, eaque ullam explicabo, ratione neque cumque, veniam quam saepe. Molestias,
-                voluptatum magnam.</p>
+            <div id="res">
+                <p>Resultado</p>
+            </div>
 
 
         </section>
     </main>
-
-
-
     <script>
+
         fetch('menu.html')
-            .then(response => response.text())
-            .then(data => { document.getElementById('divmenu').innerHTML = data; })
-            .catch(error => console.error('Erro Ao carregar o conteúdo:', error));
+        .then(response => response.text())
+        .then(data => {document.getElementById('divmenu').innerHTML = data;})
+        .catch(error => console.error('Erro Ao carregar o conteúdo:', error));
+
+
+        document.getElementById('txtpeso').addEventListener("input", calc)
+
+
+        function calc() {
+            var res = document.getElementById('res')
+
+
+            var txtalt = document.getElementById('txtalt')
+            txtalt = Number(txtalt.value)
+            if (txtalt > 0) {
+
+                txtalt = txtalt / 100
+
+                var txtpeso = Number(document.getElementById('txtpeso').value)
+
+                var imc = txtpeso / txtalt ** 2
+                res.innerHTML = `O seu imc É ${imc.toFixed(2)} <br>`
+                res.style.color = "white"
+                res.style.textShadow = "1px 1px 1px rgba(0, 0, 0, 0.564)"
+
+
+
+                if (imc < 18.5) {
+                    res.innerHTML += "Baixo Peso"
+                    res.style.background = "yellow"
+                    res.style.color = "black"
+
+                } else if (imc < 25) {
+                    res.innerHTML += `Peso Normal`
+                    res.style.background = "green"
+
+                } else if (imc < 30) {
+                    res.innerHTML += `Sobrepeso`
+                    res.style.background = "orange"
+
+                } else {
+                    res.innerHTML += "Obesidade"
+                    res.style.background = "red"
+
+                }
+            } else {
+                res.innerHTML = "Preencha o campo Altura"
+            }
+
+
+        }
+
 
     </script>
 
-   
 </body>
 
 </html>

@@ -71,6 +71,7 @@ section div{
         var corpo = document.getElementById("corpo")
         
         var section = document.getElementById("caixa")
+        var imagem = document.getElementById('img')
 
         var nome = document.getElementById('nome')
        nome.innerHTML = nomeUsu
@@ -84,11 +85,15 @@ section div{
             corpo.style.background = "rgb(50, 51, 95)"
             corpo.style.color = "white"
             section.style.background = "rgb(0, 7, 105)"
+                        imagem.style.backgroundImage = "url('')"
+
+            
         } else if (horario < 12) {
             msgTurno = "Tenha um bom dia!!"
             corpo.style.background = "rgb(169, 204, 255)"
             
             section.style.background =   "rgb(231, 255, 146)"
+            imagem.style.backgroundImage = "url('https://static4.depositphotos.com/1000423/456/i/450/depositphotos_4560942-stock-photo-exquisite-landscape-blue-skies-sunshine.jpg')"
 
 
         } else if (horario < 18) {
@@ -96,12 +101,12 @@ section div{
             corpo.style.background = "rgb(139, 193, 255)"
             
             section.style.background =   "rgb(255, 217, 0)"
-
-
+                        imagem.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/9/93/Sol_a_pino.JPG')"
 
         } else {
             msgTurno = "Tenha uma boa noite!!"
             corpo.style.color = "white"
+            imagem.style.backgroundImage = "url('https://st2.depositphotos.com/2627021/8523/i/450/depositphotos_85236464-stock-photo-romantic-moon-in-starry-night.jpg')"
 
 
             corpo.style.background = "rgb(0, 50, 107)"

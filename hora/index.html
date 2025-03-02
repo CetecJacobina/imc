@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos/style.css">
+
+    <style>
+        *{
+    margin:0;
+    padding:0;
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+main{
+    width: 100%;
+    height: 100vh;
+    padding-top: 20px;
+}
+header{
+    margin-bottom: 20px;
+    width: 300px;
+    margin: auto;
+
+}
+section{
+    max-width: 300px;
+    height: 400px;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 20px;    
+    text-align: center;
+
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.37);
+}
+section div{
+    
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+    </style>
+
+</head>
+
+<body>
+    <main id="corpo">
+        <header>
+            <h1>Olá, <span id="nome"></span></h1>
+            <h2>Agora são <span id="hora"> </span></h2>
+        </header>
+        <section id="caixa">
+
+            <div id="img">
+
+            </div>
+            <h2 id="turno"></h2>
+        </section>
+    </main>
+
+
+    <script>
+        var nomeUsu = window.prompt("Qual é seu nome?")
+        var corpo = document.getElementById("corpo")
+        
+        var section = document.getElementById("caixa")
+
+        var nome = document.getElementById('nome')
+       nome.innerHTML = nomeUsu
+        var horario = new Date()
+        var hora = document.getElementById('hora')
+        hora.innerHTML = horario.getHours() + "<small>h</small> e " + horario.getMinutes() + "<small>m</small>"
+        var msgTurno
+        horario =  horario.getHours()
+        if (horario < 6) {
+            msgTurno = "Tenha uma boa madrugada!!"
+            corpo.style.background = "rgb(50, 51, 95)"
+            corpo.style.color = "white"
+            section.style.background = "rgb(0, 7, 105)"
+        } else if (horario < 12) {
+            msgTurno = "Tenha um bom dia!!"
+            corpo.style.background = "rgb(169, 204, 255)"
+            
+            section.style.background =   "rgb(231, 255, 146)"
+
+
+        } else if (horario < 18) {
+            msgTurno = "Tenha uma boa tarde!!"
+            corpo.style.background = "rgb(139, 193, 255)"
+            
+            section.style.background =   "rgb(255, 217, 0)"
+
+
+
+        } else {
+            msgTurno = "Tenha uma boa noite!!"
+            corpo.style.color = "white"
+
+
+            corpo.style.background = "rgb(0, 50, 107)"
+            
+            section.style.background =   "rgb(6, 0, 85)"
+
+
+
+            
+            
+        }
+
+
+        var turno = document.getElementById("turno")
+        turno.innerHTML = msgTurno
+
+
+        
+    </script>
+</body>
+
+</html>
